@@ -213,6 +213,7 @@ body {
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .dashboard-main-grid {
@@ -220,6 +221,43 @@ body {
     grid-template-columns: 2fr 1fr;
     gap: 24px;
     align-items: start;
+}
+
+.kanban-columns {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: 600px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 28px;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 1 1 320px;
+    width: 100%;
+    max-width: 450px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #fffef0 100%);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content {
+    background: #95baeb;
+    max-width: 600px;
+    width: min(100%, 560px);
+    border-radius: 40px;
+    padding: 28px;
+    max-height: 80vh;
+    overflow-y: auto;
+    border: 1px solid rgba(83, 149, 207, 0.22);
 }
 
 .dashboard-left,
@@ -403,29 +441,6 @@ body {
     color: #091541;
 }
 
-.kanban-columns {
-    display: flex;
-    gap: 24px;
-    overflow-x: auto;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    min-height: 600px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 28px;
-    padding-top: 20px;
-}
-
-.column {
-    flex: 0 0 450px;
-    background: linear-gradient(135deg, #f0f9ff 0%, #fffef0 100%);
-    border-radius: 16px;
-    padding: 24px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;
-}
-
 .column h3 {
     font-size: 18px;
     font-weight: 700;
@@ -548,8 +563,8 @@ body {
 
 .modal-content {
     background: #95baeb;
-    max-width: 550px;
-    width: 90%;
+    max-width: 600px;
+    width: min(100%, 560px);
     border-radius: 40px;
     padding: 28px;
     max-height: 80vh;
@@ -658,7 +673,11 @@ hr {
 }
 
 /* --- Responsividade geral --- */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
+    body {
+        padding: 16px;
+    }
+
     .login-container {
         flex-direction: column;
     }
@@ -669,7 +688,7 @@ hr {
     }
 
     .login-left {
-        padding: 40px 32px;
+        padding: 40px 28px;
         border-radius: 0;
     }
 
@@ -677,27 +696,107 @@ hr {
         border-radius: 0;
     }
 
-    .kanban-columns {
-        flex-direction: column;
-        align-items: center;
+    .login-left h1 {
+        font-size: 3rem;
     }
 
-    .column {
-        flex: 0 0 auto;
-        width: 100%;
-        max-width: 450px;
+    .login-main-logo {
+        max-width: 260px;
+        margin: 0 auto;
     }
 
-    .cards-grid {
+    .dashboard {
+        padding: 0;
+    }
+
+    .dashboard-main-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .card {
-        max-width: none;
     }
 
     .dashboard-header {
         flex-direction: column;
+        align-items: stretch;
+        padding: 20px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 2.4rem;
+    }
+
+    .startup-description {
+        max-width: 100%;
+    }
+
+    .logout-btn,
+    .back-btn,
+    .add-task-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kanban-columns {
+        flex-direction: column;
+        align-items: stretch;
+        padding-left: 12px;
+        padding-right: 12px;
+        min-height: auto;
+    }
+
+    .column {
+        max-width: 100%;
+    }
+
+    .panel {
+        padding: 20px;
+    }
+
+    .modal-content {
+        width: min(100%, 92%);
+        padding: 22px;
+    }
+
+    .task-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 12px;
+    }
+
+    .dashboard-header {
+        gap: 14px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 2rem;
+    }
+
+    .startup-description {
+        padding: 14px 16px;
+    }
+
+    .panel {
+        padding: 18px;
+    }
+
+    .login-card {
+        padding: 24px 20px;
+    }
+
+    .input-group input,
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 14px 14px;
+    }
+
+    .login-btn,
+    .secondary-btn,
+    .back-btn,
+    .add-task-btn,
+    button {
+        padding: 12px 16px;
     }
 }
